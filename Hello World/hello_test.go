@@ -20,7 +20,38 @@ func TestHelloYou(t *testing.T){
 
 	t.Run("When name is an empty string then just return Hello World", func(t *testing.T){
 		got := Hello_You("")
-		want := "Hello"
+		want := "Hello World"
+		assertCorrectMessage(t, got, want)
+	})
+}
+
+func TestHelloLanguage(t *testing.T){
+	t.Run("in spanish",func(t *testing.T){
+		got := Hello_lang("Brad", "Spanish")
+		want := "Hola Brad"
+		assertCorrectMessage(t, got, want)
+	})
+
+	t.Run("in french",func(t *testing.T){
+		got := Hello_lang("Brad", "French")
+		want := "Bonjour Brad"
+		assertCorrectMessage(t, got, want)
+	})
+
+	t.Run("in english",func(t *testing.T){
+		got := Hello_lang("Brad", "English")
+		want := "Hello Brad"
+		assertCorrectMessage(t, got, want)
+	})
+
+	t.Run("if no langauge specified",func(t *testing.T){
+		got := Hello_lang("Brad", "")
+		want := "Hello Brad"
+		assertCorrectMessage(t, got, want)
+	})
+	t.Run("if no langauge specified",func(t *testing.T){
+		got := Hello_lang("Brad", "spAnISH")
+		want := "Hola Brad"
 		assertCorrectMessage(t, got, want)
 	})
 }
