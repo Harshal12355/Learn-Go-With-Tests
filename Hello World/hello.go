@@ -7,6 +7,9 @@ func Hello_World() string {
 }
 
 func Hello_You(name string) string {
+	if name == ""{
+		name = "World"
+	}
 	return "Hello " + name 
 }
 
